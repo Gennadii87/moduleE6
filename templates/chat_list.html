@@ -1,0 +1,15 @@
+<!-- chat_list.html -->
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+ <h1>Список чатов</h1>
+    <ul>
+        {% for chat in chats %}
+            <li><a href="{% url 'groupchat-detail' chat.id %}">{{ chat.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

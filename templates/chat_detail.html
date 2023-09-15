@@ -1,0 +1,28 @@
+<!-- chat_list.html -->
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <h1>{{ chat.name }}</h1>
+    <h2>Участники:</h2>
+    <ul>
+        {% for member in chat.members.all %}
+            <li>{{ member.display_name }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Сообщения:</h2>
+    <ul id="message-list">
+        {% for message in messages %}
+            <li>{{ message.user.display_name }}: {{ message.content }}</li>
+        {% endfor %}
+    </ul>
+
+    <form id="message-form">
+        <input type="text" id="message-input" placeholder="Введите сообщение">
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}
